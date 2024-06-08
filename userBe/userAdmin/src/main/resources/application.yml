@@ -1,0 +1,29 @@
+
+spring:
+  application:
+      name: user-admin
+  datasource:
+      url: jdbc:mysql://117.72.47.29:3333/hb?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: mysql_scZKA6
+      driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+      port: 8080
+      servlet:
+        context-path: /api
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      column-underline: false # 关闭字段下划线转驼峰命名策略
+      logic-delete-field: isDelete #默认deleted,逻辑删除配置
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
+      configuration:
+        log-impl: com.example.useradmin.service.impl.UserServiceImpl
+        mapper-locations: classpath:src/main/resources/mapper/**.xml
+
+        session:
+          timeout: 86400 # session超时时间
